@@ -17,6 +17,7 @@ export default function Board() {
 
   useEffect(() => {
     const render = () => {
+      console.log("called render");
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
       paddleProps.y = canvas.height - 30;
