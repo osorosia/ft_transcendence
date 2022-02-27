@@ -2,8 +2,8 @@ export default {
     ballObj: {
         x: 0,
         y: 0,
-        dx: 5,
-        dy: 5,
+        dx: 20,
+        dy: 20,
         rad: 10,
         speed: 10,
     },
