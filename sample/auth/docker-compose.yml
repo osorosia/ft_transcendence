@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+
+  pgadmin4:
+      image: dpage/pgadmin4:5.0
+      container_name: pgadmin4
+      ports:
+          - 8000:80
+      environment:
+          PGADMIN_DEFAULT_EMAIL: root
+          PGADMIN_DEFAULT_PASSWORD: root
+      hostname: pgadmin4
+      depends_on:
+        - postgres
+      restart: always
+
+volumes:
+  postgres_volume:
+    external: true
